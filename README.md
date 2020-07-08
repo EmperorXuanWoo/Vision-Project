@@ -11,3 +11,14 @@ cd examples
   ```
   python AdafruitDHT.py 11 4
   ```
+  
+# InfluxDB Installation
+  # 1. Repository dml  GPG key 구하기
+  ```
+  curl -sL https://repos.influxdata.com/influsdb.key | sudo apt-key add -
+  ```
+  # 2. Repository를 더하기
+  ```
+  echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee
+  ```
+  # 3. 프로그램 설치
