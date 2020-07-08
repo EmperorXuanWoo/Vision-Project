@@ -13,6 +13,7 @@ cd examples
   ```
   
 # InfluxDB Installation
+
   ## 1. Repository dml  GPG key 구하기
   ```
   curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
@@ -41,7 +42,9 @@ cd examples
   ```
   확인 : show databases
   ```
+  
   # Grafana Installation
+  
   ## 1. Repository dml  GPG key 구하기
   ```
   curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
@@ -69,5 +72,7 @@ cd examples
   ## gpio pin map
   ```
   cd /tmp
-  
+  wget https://project-downloads.drogon.net/wiringpi-latest.deb
+  sudo dpkg -i wiringpi-latest.deb
+  ```
   
