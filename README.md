@@ -46,5 +46,11 @@ cd examples
   ```
   echo "deb https://dl.bintray.com/fg2it/deb stretch main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
   ```
+  ## 3.프로그램 설치
+  ```
+  sudo apt update
+  sudo apt install grafana
+  ```
+  
   
   
