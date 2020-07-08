@@ -1,6 +1,4 @@
-# jjvision
-
-<pre> jjvision </pre>
+#  전주비전대 project 1
 
 ## Install DHT11 sensor
 ```
