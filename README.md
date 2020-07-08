@@ -7,12 +7,12 @@ cd Adafruit_Python_DHT
 sudo python setup.py install
 cd examples
 ```
-  - Run
+  - run
   ```
   python AdafruitDHT.py 11 4
   ```
   
-## InfluxDB Installation
+# InfluxDB Installation
   ## 1. Repository dml  GPG key 구하기
   ```
   curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
