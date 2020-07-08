@@ -7,7 +7,7 @@ cd Adafruit_Python_DHT
 sudo python setup.py install
 cd Adafruit_Python_DHT/examples
 ```
-  - run
+  - Run
   ```
   python AdafruitDHT.py 11 4
   ```
