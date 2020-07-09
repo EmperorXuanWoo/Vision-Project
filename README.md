@@ -76,3 +76,8 @@ cd examples
   sudo dpkg -i wiringpi-latest.deb
   ```
   
+  ### GIT HUB 사용방법
+  - Repositoty down load
+  ``` 
+  git clone https://github.com/<username>/<repository name>
+  ```
