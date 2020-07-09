@@ -15,9 +15,9 @@ cd examples
 # InfluxDB Installation
 
   ## 1. Repository dml  GPG key 구하기
-  ```
-  curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
-  ```
+    ```
+    curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+    ```
   
   ## 2. Repository를 더하기
   ```
@@ -88,12 +88,41 @@ cd examples
   - mkdir : 디렉토리 생성
   - pwd : 현재 디렉토리
   ```
-  ### vim editor setting
+  ### Vim Editor Setting
   ```
   set nu        // Line number
   set cindent   // C language indent
   set ts=4      // tab size 4
+  set softtabstop=4
+  set bg=dark
+  set expandtab
+  let python_version_2 = 1
+  let python_highght_all = 1
+  filetype indent plugin on
+  
   if has("syntax")      // syntax on
     syntax on
   endif
   ```
+  ### Python Setting
+  ```
+  #!/usr/bin/python
+  
+  import time
+  import RPi.GPIO as GPIO
+  
+  print GPIO.VERSION
+  GPIO.setmode(GPIO_BCM)
+  GPIO_setup(4,GPIO.IN)
+  
+  def interrupt_fired(channel):
+      print("interrupt Fired")
+      print(channel)
+      
+  GPIO.add_event_detect(4,GPIO.FALLING, callback=inerrupt_fired)
+  
+  while(True):
+      time.sleep(1)
+      print("timer fired")
+  ```
+  
