@@ -118,11 +118,15 @@ cd examples
   def interrupt_fired(channel):
       print("interrupt Fired")
       print(channel)
+      #a = 1
+      #print(a)
       
   GPIO.add_event_detect(4,GPIO.FALLING, callback=inerrupt_fired)
   
   while(True):
       time.sleep(1)
+      #a = 0
+      #print(a)
       print("timer fired")
   ```
   
