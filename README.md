@@ -88,3 +88,12 @@ cd examples
   - mkdir : 디렉토리 생성
   - pwd : 현재 디렉토리
   ```
+  ### vim editor setting
+  ```
+  set nu        // Line number
+  set cindent   // C language indent
+  set ts=4      // tab size 4
+  if has("syntax")      // syntax on
+      syntax on
+  endif
+  ```
