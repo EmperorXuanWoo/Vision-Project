@@ -233,14 +233,13 @@
   ```
   cp 복사할파일 복사할위치
   cp 복사할파일 /home/pi/<directory>
-  ./                    | 현재위치
+  ./ --> 현재위치
   ```
-  
   ### 이산화탄소 Sensor
   ```
   vim co2.py                                  | co2.py 파일 생성
   sudo vim /boot/config.txt
   dtoverlay=pi3-disable-bt                    | /boot/config.txt 파일 가장 하단에 작성
-  sudo systemctl disable huiuart              | 블루투스 제거
+  sudo systemctl disable huiuart              | 블루투스 제거( 사용안함 )
   sudo reboot                                 | 리붓
   ```
