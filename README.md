@@ -243,3 +243,9 @@
   sudo systemctl disable huiuart              | 블루투스 제거( 사용안함 )
   sudo reboot                                 | 리붓
   ```
+  ###  라즈베리파이 Telegram API 설치
+  ```
+  pip3 install python-telegram-bot --upgrade
+  git clone https://github.com/python-telegram-bot/python-telegram-bot --recursivel
+  
+  ```
