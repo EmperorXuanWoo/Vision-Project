@@ -135,6 +135,71 @@
       time.sleep(1)   
       print("timer fired")
   ```
+  ### Python pir.py
+  ```
+  #!/usr/bin/python
+
+  import time
+  import RPi.GPIO as GPIO
+  import requests, json
+  from influxdb import InfluxDBClient as influxdb
+
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setup(4, GPIO.IN)
+
+  def interrupt_fired(channel):
+      print("interrupt Fired")
+      a = 5
+      data = [{
+          'measurement' : 'pir',        
+          'tags':{
+              'VisionUni' : '2410',
+          },
+          'fields':{
+              'pir' : a,
+          }
+      }]
+      client = None
+      try:
+          client = influxdb('localhost',8086,'root','root','pir')
+      except Exception as e:
+          print "Exception" + str(e)
+      if client is not None:
+          try:
+              client.write_points(data)
+          except Exception as e:
+              print "Exception write " + str(e)
+          finally:
+              client.close()
+      print(a)
+  GPIO.add_event_detect(4, GPIO.FALLING, callback=interrupt_fired)
+
+  while(True):
+      time.sleep(1)
+      a = 1
+      data = [{
+          'measurement' : 'pir',        
+          'tags':{
+              'VisionUni' : '2410',
+          },
+          'fields':{
+              'pir' : a,
+          }
+      }]
+      client = None
+      try:
+          client = influxdb('localhost',8086,'root','root','pir')
+      except Exception as e:
+          print "Exception" + str(e)
+      if client is not None:
+          try:
+              client.write_points(data)
+          except Exception as e:
+              print "Exception write " + str(e)
+          finally:
+              client.close()
+      print("running influxdb OK")
+  ```
   ### Python co2.py
   ```
   #!/usr/bin/python
@@ -158,24 +223,24 @@
           
       time.sleep(5)
   ```
-      
+  
   ### 라즈베리파이 설정 변경 -serial 설정
   ```
   sudo raspi-config
   ```
   
-  ### 파일 복사하기
+  ### Pyton 파일 복사하기
   ```
   cp 복사할파일 복사할위치
   cp 복사할파일 /home/pi/<directory>
-  ./ 현재위치
+  ./                    | 현재위치
   ```
   
   ### 이산화탄소 Sensor
   ```
-  vim co2.py
+  vim co2.py                    | co2.py 파일 생성
   sudo vim /boot/config.txt
-  dtoverlay=pi3-disable-bt
-  sudo systemctl disable huiuart 블루투스 제거
-  sudo reboot 
+  dtoverlay=pi3-disable-bt                    | /boot/config.txt 파일 가장 하단에 작성
+  sudo systemctl disable huiuart                    | 블루투스 제거
+  sudo reboot                   | 리붓
   ```
