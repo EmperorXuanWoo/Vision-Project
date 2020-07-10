@@ -1,18 +1,18 @@
 #  전주비전대 project 1
 
-## Install DHT11 sensor
-```
-git clone https://github.com/adafruit/Adafruit_Python_DHT.git
-cd Adafruit_Python_DHT
-sudo python setup.py install
-cd examples
-```
+  ## Install DHT11 sensor
+  ```
+  git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+  cd Adafruit_Python_DHT
+  sudo python setup.py install
+  cd examples
+  ```
   - run
   ```
   python AdafruitDHT.py 11 4
   ```
   
-# InfluxDB Installation
+  # InfluxDB Installation
 
   ## 1. Repository dml  GPG key 구하기
    ```
@@ -81,12 +81,23 @@ cd examples
   ``` 
   git clone https://github.com/<username>/<repository name>
   ```
+  - GIT HUB Uploadpwd
+  ```
+  git add .
+  git commit -m <주석?이름?(자기맘대로)>
+  git config --global user.email "홍길동@gmail.com"
+  git config --global user.name "이름"
+  git push
+  ```
   ### GIT HUB  기본명령어
   ```
   - ls : 현재 경로 파일 리스트
   - cd : 디렉토리 변경
   - mkdir : 디렉토리 생성
   - pwd : 현재 디렉토리
+             .
+             .
+             .
   ```
   ### Vim Editor Setting
   ```
@@ -104,7 +115,7 @@ cd examples
     syntax on
   endif
   ```
-  ### Python Setting
+  ### Python
   ```
   #!/usr/bin/python
   
@@ -124,4 +135,47 @@ cd examples
       time.sleep(1)   
       print("timer fired")
   ```
+  ### Python co2.py
+  ```
+  #!/usr/bin/python
   
+  import sys, serial, time
+  
+  comm = '/dev/ttyAMA0'
+  baudrate = 38400
+  
+  device = serial.Serial(comm,baudrate, timeout = 5)
+  print(device)
+  
+  while(True):
+      try:
+          rcvBuf = bytearray()
+          device.reset_input_buffer()
+          rcvBuf = device.read_untill(size=12)
+          print rcvBuf
+      except Exception as e:
+          print("exception read") + str(e)
+          
+      time.sleep(5)
+  ```
+      
+  ### 라즈베리파이 설정 변경 -serial 설정
+  ```
+  sudo raspi-config
+  ```
+  
+  ### 파일 복사하기
+  ```
+  cp 복사할파일 복사할위치
+  cp 복사할파일 /home/pi/<directory>
+  ./ 현재위치
+  ```
+  
+  ### 이산화탄소 Sensor
+  ```
+  vim co2.py
+  sudo vim /boot/config.txt
+  dtoverlay=pi3-disable-bt
+  sudo systemctl disable huiuart 블루투스 제거
+  sudo reboot 
+  ```
