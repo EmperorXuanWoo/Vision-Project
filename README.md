@@ -246,6 +246,6 @@
   ###  라즈베리파이 Telegram API 설치
   ```
   pip3 install python-telegram-bot --upgrade
-  git clone https://github.com/python-telegram-bot/python-telegram-bot --recursiv
+  git clone https://github.com/python-telegram-bot/python-telegram-bot --recursive
   
   ```
