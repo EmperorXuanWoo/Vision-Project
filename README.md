@@ -249,3 +249,17 @@
   git clone https://github.com/python-telegram-bot/python-telegram-bot --recursive
   
   ```
+  ### lora 시리얼 통신 led제어
+  ```
+  import serial
+  import time
+  from datetime import datetime
+  ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=1)
+  
+  try:
+      while 1:
+          ser.write("AT+SEND 2:KX15JTQP000020080\n")
+          ser.write("AT+SEND 2:KX15JTQP000020082\n")
+          time.sleep(3)
+          ser.write("AT+SEND 2:KX15JTQP000020082\n")
+          ser.write("AT+SEND 2:KX15JTQP000020082\n")
